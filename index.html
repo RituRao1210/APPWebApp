@@ -1,0 +1,129 @@
+
+<html lang="en">
+<head>
+<style>
+
+.button {
+  background-color: #0000FF;
+  border: 2px solid #ADD8E6;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+
+}
+
+.button2 {
+	border-radius: 8px;
+}
+
+label {
+	width: 180px;
+	display:inline-block;
+	text-align: right;
+	vertical-align: center;
+	color: #0000FF;
+}
+
+fieldset {
+	background: #FAEBD7;
+	border: 5px solid #0000FF;
+	border-radius: 8px;
+	margin-bottom:10px;
+	width: 500px;
+	margin: auto;
+	padding-top: 50px;
+	padding-bottom: 30px;
+
+}
+
+textarea {
+	width:200px;
+	height: 100px;
+	color: green;
+	border: solid 1.1px;
+	resize: none;
+}
+
+input{
+	width: 200px;
+	height: 25px;
+	color: green;
+	border: solid 1px;
+}
+
+::-webkit-input-placeholder {
+  color: grey;
+  font-size: 15px;
+}
+
+</style>
+
+</head>
+<body>
+
+    <form name="myForm" method="post" onsubmit="return validateForm()">
+    	<font face="arial">
+    	<fieldset>
+        <label for="First Name">First Name</label>
+        <input type="text" name="FirstName" placeholder="Fist Name"><br><br>
+        <label>Last Name</label>
+        <input type="text" name="LastName" placeholder="Last Name"><br><br>
+    	<label>Email Address</label>
+    	<input type="text" name="EmailAddress" placeholder="Email Address"><br><br>
+        <label style="vertical-align: top;">Notes</label>
+        <textarea name="Notes"></textarea><br><br>
+        </font>
+        <label></label>
+        <button class="button button2" type="submit" value="Submit">Register</button><br><br>
+        <p id="validate" style="text-align: center;"></p>
+        </fieldset>
+        
+    </form>
+
+
+<script>
+function validateForm() {
+  var firstName = document.forms["myForm"]["FirstName"].value;
+  var lastName = document.forms["myForm"]["LastName"].value;
+  var emailAddress = document.forms["myForm"]["EmailAddress"].value;
+  var notes = document.forms["myForm"]["Notes"].value;
+
+  if (firstName == "") {
+    document.getElementById("validate").innerHTML = "First Name must be filled out";
+    document.getElementById("validate").style.color = "red";
+    return false;
+  }	
+
+  if (lastName == "") {
+    document.getElementById("validate").innerHTML = "Last Name must be filled out";
+    document.getElementById("validate").style.color = "red";
+    return false;
+  }
+  if (emailAddress == "") {
+    document.getElementById("validate").innerHTML = "Email Address must be filled out";
+    document.getElementById("validate").style.color = "red";
+    return false;	
+  }
+  if (notes == "") {
+    document.getElementById("validate").innerHTML = "Notes must be filled out";
+    document.getElementById("validate").style.color = "red";
+    return false;
+  }
+  else {
+  	document.getElementById("validate").innerHTML = "You are now registered Successfully!!";
+  	document.getElementById("validate").style.color = "green";
+  	return false;
+  }
+
+ }
+
+</script>
+
+</body>
+</html>     
